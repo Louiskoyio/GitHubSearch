@@ -11,7 +11,9 @@
             <div *ngFor="let user of users">
                 <div class="card">
                         <div class="card-body">
-                    <a href="{{user.url}}">user</a>
+                    <a href="{{user.url}}">user</a><br>
+                    <a href="{{user.repos_url}}">user</a><br> 
+
                     <button routerLink="/user-repo" class="btn btn-primary">See Repositories</button>
                     </div>
                 </div>

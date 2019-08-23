@@ -1,33 +1,33 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from'@angular/common/http';
 import {environment} from '../../environments/environment';
-import { User } from '../user';
+import { Repo } from '../repo';
 
 @Injectable({
   providedIn: 'root'
 })
-export class SearchService {
-  users:User[]=[];
+export class ReposService {
+  repos:Repo[]=[];
 
   constructor(private http:HttpClient) { }
 
-  searchUsers(userQuery:string){
+  searchrepos(userQuery:string){
 
         
-    let searchEndpoint= "https://api.github.com/search/users?accesstoken="+environment.GITHUBACCESSTOKEN;
+    let searchEndpoint= "https://api.github.com/search/repositories?accesstoken="+environment.GITHUBACCESSTOKEN;
     searchEndpoint += "&q="+userQuery;
 
     let promise =  new Promise((resolve, reject)=>{
         this.http.get(searchEndpoint).toPromise().then(
           (results)=>{
-            this.users=[];
+            this.repos=[];
             for(let i=0; i<results["items"].length; i++){
-              let url = results["items"][i]["url"];
-              let repos = results["items"][i]["repos_url"];
-              let user = new User(url,repos);
-              this.users.push(user);
+              let name = results["items"][i]["name"];
+              let description = results["items"][i]["description"];
+              let repo = new Repo(name,description);
+              this.repos.push(repo);
             }
-            console.log(this.users);
+            console.log(this.repos);
             resolve()
           },
           (error)=>{
