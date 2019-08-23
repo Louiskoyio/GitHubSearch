@@ -1,1 +1,12 @@
-<p>results works!</p>
+<div>
+    <app-search (emitSearch)="searchUser($event)"></app-search>
+    <div *ngIf="users">
+        <div class="card-columns">
+            <div *ngFor="let user of users">
+                <div class="card">
+                    <img src="{{user.url}}" class="card-img">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
