@@ -4,7 +4,7 @@ import { UserRepositoriesComponent } from './user-repositories/user-repositories
 
 
 const routes: Routes = [
-  { path: 'user-repo', component: UserRepositoriesComponent}
+  { path: 'user-repo/:link', component: UserRepositoriesComponent}
 ];
 
 @NgModule({

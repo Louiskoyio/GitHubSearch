@@ -22,7 +22,7 @@ export class SearchService {
           (results)=>{
             this.users=[];
             for(let i=0; i<results["items"].length; i++){
-              let url = results["items"][i]["url"];
+              let url = results["items"][i]["login"];
               let repos = results["items"][i]["repos_url"];
               let user = new User(url,repos);
               this.users.push(user);
