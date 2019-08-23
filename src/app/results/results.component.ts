@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from '../user';
 import { SearchService } from '../services/search.service';
+import { User } from '../user';
+
 
 @Component({
   selector: 'app-results',
@@ -9,15 +10,7 @@ import { SearchService } from '../services/search.service';
 })
 export class ResultsComponent implements OnInit {
   users:User[];
-
-  constructor(public searchService:SearchService) { }
-
-  ngOnInit() {
-    this.searchUser("Louiskoyio");
-  }
-
-
-	searchUser(userQuery){
+	searchUser(userQuery: string){
     this.searchService.searchUsers(userQuery).then(
       ()=>{
         this.users=this.searchService.users;
@@ -27,5 +20,16 @@ export class ResultsComponent implements OnInit {
       }
     )
     }
+  constructor(public searchService:SearchService) { }
+
+
+
+  ngOnInit() {
+    this.searchService.searchUsers("Louiskoyio")
+    this.users = this.searchService.users
+
+  }
+
+
 
 }

@@ -14,15 +14,15 @@ export class SearchService {
   searchUsers(userQuery:string){
 
         
-    let searchEndpoint= "https://api.github.com/search/users?accesstoken="+environment.GIPHYAPIKEY;
+    let searchEndpoint= "https://api.github.com/search/users?accesstoken="+environment.GITHUBACCESSTOKEN;
     searchEndpoint += "&q="+userQuery;
 
     let promise =  new Promise((resolve, reject)=>{
         this.http.get(searchEndpoint).toPromise().then(
           (results)=>{
             this.users=[];
-            for(let i=0; i<results["data"].length; i++){
-              let url = results["data"][i]["images"]["fixed_height"]["url"];
+            for(let i=0; i<results["items"].length; i++){
+              let url = results["items"][i]["url"];
               let user = new User(url);
               this.users.push(user);
             }
