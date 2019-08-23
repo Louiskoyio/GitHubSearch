@@ -1,8 +1,8 @@
 <div class="card">
     <div class="card-body">
     <form>
-    <input type="text">
-    <button class="btn btn-primary">Search User</button>
+    <input type="text" name="userQuery" [(ngModel)]="userQuery">
+    <button class="btn btn-primary" (click)="search()">Search User</button>
     </form>
     </div>
 </div>
