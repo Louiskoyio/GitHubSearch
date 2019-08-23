@@ -25,8 +25,7 @@ export class ResultsComponent implements OnInit {
 
 
   ngOnInit() {
-    this.searchService.searchUsers("Louiskoyio")
-    this.users = this.searchService.users
+
 
   }
 
