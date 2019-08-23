@@ -10,7 +10,10 @@
         <div class="card-columns">
             <div *ngFor="let user of users">
                 <div class="card">
-                    <p>"{{user.url}}" </p>
+                        <div class="card-body">
+                    <a href="{{user.url}}">user</a>
+                    <button routerLink="/user-repo" class="btn btn-primary">See Repositories</button>
+                    </div>
                 </div>
             </div>
         </div>
