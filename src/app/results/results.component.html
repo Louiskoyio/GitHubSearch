@@ -1,11 +1,6 @@
 <div>
     <app-search (emitSearch)="searchUser($event)"></app-search>
-    <div class="card">
-        <div class="card-body">
-        <b><a href="https://github.com/Louiskoyio">Louiskoyio</a></b>
-        <button routerLink="/user-repo" class="btn btn-primary">See Repositories</button>
-        </div>
-    </div>
+
     <div *ngIf="users">
         <div class="card-columns">
             <div *ngFor="let user of users">
