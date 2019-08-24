@@ -1,6 +1,8 @@
 import { Component, OnInit,Input, Output, EventEmitter  } from '@angular/core';
 import { SearchService } from '../services/search.service';
+import { MyProfileService } from '../services/my-profile.service';
 import { User } from '../user';
+import { Myprofile} from '../myprofile';
 
 
 @Component({

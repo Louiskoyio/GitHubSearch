@@ -4,3 +4,14 @@
     text-align: center;
     margin: 10px;
 }
+.card:hover{
+    -webkit-box-shadow: 7px 15px 5px -3px rgba(0,0,0,0.16);
+    -moz-box-shadow: 7px 15px 5px -3px rgba(0,0,0,0.16);
+    box-shadow: 7px 15px 5px -3px rgba(0,0,0,0.16);
+    width:1.05;
+    transition: 1s all ease;
+}
+img{
+    height: 40px;
+    width: 40px;
+}

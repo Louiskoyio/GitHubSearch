@@ -1,9 +1,43 @@
 import { Injectable } from '@angular/core';
+import {environment} from '../../environments/environment';
+import {HttpClient} from'@angular/common/http';
+import { Myprofile } from '../myprofile';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MyProfileService {
 
-  constructor() { }
+  profile:Myprofile[]=[];
+
+  constructor(private http:HttpClient) { }
+
+  getProfile(){
+
+        
+    let searchEndpoint= "https://api.github.com/users/Louiskoyio?accesstoken="+environment.GITHUBACCESSTOKEN;
+ 
+
+    let promise =  new Promise((resolve, reject)=>{
+        this.http.get(searchEndpoint).toPromise().then(
+          (result)=>{
+            this.profile=[];
+          
+              let login = result["login"];
+              let repos = result["repos_url"];
+              let myprofile = new Myprofile(login,repos);
+              this.profile.push(myprofile);
+            
+            console.log(this.profile);
+            resolve()
+          },
+          (error)=>{
+            console.log(error)
+            reject()
+          }
+        )
+    })
+    return promise;
+
+  }
 }

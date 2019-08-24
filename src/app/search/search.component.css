@@ -1,6 +1,7 @@
-.card{
-    padding:30px;
-    font-size: 25px;
+.card,h2{
+    padding:20px;
+    font-size: 20px;
     text-align: center;
     margin: 10px;
 }
+

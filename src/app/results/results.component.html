@@ -1,4 +1,5 @@
 <div>
+    <app-my-profile (getProfile)="getMyProfile($event)"></app-my-profile>
     <app-search (emitSearch)="searchUser($event)"></app-search>
 
     <div *ngIf="users">
@@ -6,6 +7,7 @@
             <div *ngFor="let user of users">
                 <div class="card">
                         <div class="card-body">
+                            <img src="{{user.ppic}}">
                     <b>{{user.login}}</b><br>
                     <button [routerLink]="['/user-repo',user.login]" class="btn btn-primary">See Repositories</button>
                     </div>

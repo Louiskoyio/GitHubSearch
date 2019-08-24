@@ -24,7 +24,8 @@ export class SearchService {
             for(let i=0; i<results["items"].length; i++){
               let url = results["items"][i]["login"];
               let repos = results["items"][i]["repos_url"];
-              let user = new User(url,repos);
+              let pic = results["items"][i]["avatar_url"];
+              let user = new User(url,repos,pic);
               this.users.push(user);
             }
             console.log(this.users);

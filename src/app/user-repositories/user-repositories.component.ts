@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
-import { ReposService} from '../services/repos.service';
+import { UserReposService} from '../services/user-repos.service';
 import { Repo } from '../repo';
 
 @Component({
@@ -10,11 +10,23 @@ import { Repo } from '../repo';
   styleUrls: ['./user-repositories.component.css']
 })
 export class UserRepositoriesComponent implements OnInit {
+  @Output() getProfile = new EventEmitter<any>()
 
   username: string;
-  repo:Repo;
+  repo:Repo[]=[];
 
-  constructor(private route: ActivatedRoute, private http:HttpClient) { }
+  getUserRepos(){
+    this.repoService.getRepos().then(
+      ()=>{
+        this.repo=this.repoService.repos;
+      },
+      (error)=>{
+        console.log(error)
+      }
+    )
+    }
+
+  constructor(private route: ActivatedRoute, public repoService:UserReposService,private http:HttpClient) { }
 
   ngOnInit() {
     this.route.paramMap.subscribe(
@@ -22,16 +34,8 @@ export class UserRepositoriesComponent implements OnInit {
         this.username=params.get('link');
 
     });
+    this.getUserRepos();
     
-    interface ApiResponse{
-      name:string;
-      description:string;
-    }
-
-    this.http.get<ApiResponse>("https://api.github.com/users/Louiskoyio").subscribe(data=>{
-      // Succesful API request
-      this.repo = new Repo(data.name, data.description)
-    })
   } 
   }
 
