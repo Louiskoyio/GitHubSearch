@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Input, Output, EventEmitter  } from '@angular/core';
 import { SearchService } from '../services/search.service';
 import { User } from '../user';
 
@@ -9,7 +9,10 @@ import { User } from '../user';
   styleUrls: ['./results.component.css']
 })
 export class ResultsComponent implements OnInit {
+
   users:User[];
+
+
 	searchUser(userQuery: string){
     this.searchService.searchUsers(userQuery).then(
       ()=>{

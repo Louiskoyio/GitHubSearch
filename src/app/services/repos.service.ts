@@ -11,14 +11,15 @@ export class ReposService {
 
   constructor(private http:HttpClient) { }
 
-  searchRepos(reposLink:string){
+  searchRepos(username:string){
 
         
-    let searchEndpoint= reposLink + "?accesstoken="+environment.GITHUBACCESSTOKEN;
+    let searchEndpoint= "https://api.github.com/users/" +username+"/repos" + "?accesstoken="+environment.GITHUBACCESSTOKEN;
     let promise =  new Promise((resolve, reject)=>{
         this.http.get(searchEndpoint).toPromise().then(
           
           (results)=>{
+
             this.repos=[];
             
             for(let i=0; i<results["items"].length; i++){

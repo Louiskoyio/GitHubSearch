@@ -1,6 +1,25 @@
 <div class="container">
-        <h2>Public Repositories By {{repo_link}}</h2><br>
-    <div class="row">
+
+        <div *ngIf="repos">
+                <div class="card-columns">
+                    <div *ngFor="let repo of repos">
+                        <div class="card">
+                                <div class="card-body">
+                            <b> {{repo.name}}</b>-----<b>{{repo.description}}</b><br> 
+        
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+
+        <h2>Public Repositories By {{username}}</h2><br>
+    <div>
 
     <div class="card"><b>Repository Name</b><p>Repository Description Goes Here</p><button class="btn btn-primary">Go to Repository</button></div>
     <div class="card"><b>Repository Name</b><p>Repository Description Goes Here</p><button class="btn btn-primary">Go to Repository</button></div>
@@ -8,7 +27,7 @@
     <div class="card"><b>Repository Name</b><p>Repository Description Goes Here</p><button class="btn btn-primary">Go to Repository</button></div>
     <div class="card"><b>Repository Name</b><p>Repository Description Goes Here</p><button class="btn btn-primary">Go to Repository</button></div>
     <div class="card"><b>Repository Name</b><p>Repository Description Goes Here</p><button class="btn btn-primary">Go to Repository</button></div>
-    <div class="card"><b>Repository Name</b><p>Repository Description Goes Here</p><button class="btn btn-primary">Go to Repository</button></div> <div class="card"><b>Repository Name</b><p>Repository Description Goes Here</p><button class="btn btn-primary">Go to Repository</button></div>
+    <div class="card"><b>Repository Name</b><p>Repository Description Goes Here</p><button class="btn btn-primary">Go to Repository</button></div>
     <div class="card"><b>Repository Name</b><p>Repository Description Goes Here</p><button class="btn btn-primary">Go to Repository</button></div>
     <div class="card"><b>Repository Name</b><p>Repository Description Goes Here</p><button class="btn btn-primary">Go to Repository</button></div>
     <div class="card"><b>Repository Name</b><p>Repository Description Goes Here</p><button class="btn btn-primary">Go to Repository</button></div>
@@ -21,18 +40,7 @@
     <div class="card"><b>Repository Name</b><p>Repository Description Goes Here</p><button class="btn btn-primary">Go to Repository</button></div>
  
  
-    <div *ngIf="repos">
-            <div class="card-columns">
-                <div *ngFor="let repo of repos">
-                    <div class="card">
-                            <div class="card-body">
-                        <b> {{repo.name}}</b>-----<b>{{repo.description}}</b><br> 
-    
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+
 
 
 </div>

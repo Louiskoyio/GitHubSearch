@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 import { ReposService} from '../services/repos.service';
 import { Repo } from '../repo';
 
@@ -10,31 +11,27 @@ import { Repo } from '../repo';
 })
 export class UserRepositoriesComponent implements OnInit {
 
-  repo_link: string;
-  repos:Repo[];
-  searchRepo(repo_link: string){
-    this.reposService.searchRepos(repo_link).then(
-      ()=>{
-        this.repos=this.reposService.repos;
-      },
-      (error)=>{
-        console.log(error)
-      }
-    )
-    }
+  username: string;
+  repo:Repo;
 
-  constructor(private route: ActivatedRoute, public reposService:ReposService) { }
+  constructor(private route: ActivatedRoute, private http:HttpClient) { }
 
   ngOnInit() {
     this.route.paramMap.subscribe(
       params => {
-        this.repo_link=params.get('link');
+        this.username=params.get('link');
 
     });
+    
+    interface ApiResponse{
+      name:string;
+      description:string;
+    }
 
-    this.searchRepo('https://api.github.com/users/Louiskoyio/repos');
-    
-    
+    this.http.get<ApiResponse>("https://api.github.com/users/Louiskoyio").subscribe(data=>{
+      // Succesful API request
+      this.repo = new Repo(data.name, data.description)
+    })
+  } 
   }
 
-}
