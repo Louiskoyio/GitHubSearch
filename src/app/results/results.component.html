@@ -1,18 +1,24 @@
 <div>
+    <div class="dashboard">
     <app-my-profile (getProfile)="getMyProfile($event)"></app-my-profile>
     <app-search (emitSearch)="searchUser($event)"></app-search>
-
-    <div *ngIf="users">
+    </div>
+    <div class="results">
+        
+    <div *ngIf="users"><h2>Search Results</h2>
         <div class="card-columns">
             <div *ngFor="let user of users">
                 <div class="card">
                         <div class="card-body">
-                            <img src="{{user.ppic}}">
-                    <b>{{user.login}}</b><br>
-                    <button [routerLink]="['/user-repo',user.login]" class="btn btn-primary">See Repositories</button>
+                            <div><img src="{{user.ppic}}"></div>
+                            <div><b>{{user.login}}</b><br>
+                    <p style="font-style: italic;">14 public repositories</p>
+                    <button [routerLink]="['/user-repo',user.login]" class="btn btn-primary">See Repositories</button></div>
+                    
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
 </div>

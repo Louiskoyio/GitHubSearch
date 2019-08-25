@@ -24,7 +24,8 @@ export class UserReposService {
             for(let i=0; i<15; i++){
               let name = results[i]["name"];
               let desc = results[i]["description"];
-              let repo = new Repo(name,desc);
+              let url = results[i]["html_url"];
+              let repo = new Repo(name,desc,url);
               this.repos.push(repo);
               i=i+i;
             }

@@ -15,6 +15,11 @@ export class UserRepositoriesComponent implements OnInit {
   username: string;
   repos:Repo[]=[];
 
+  onNavigate(repoLink : string){
+    let link = repoLink;
+    window.open(link, "_blank");
+  }
+
   getUserRepos(){
     this.repoService.getRepos().then(
       ()=>{
