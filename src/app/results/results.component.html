@@ -5,14 +5,14 @@
     </div>
     <div class="results">
         
-    <div *ngIf="users"><h2>Search Results</h2>
+    <div *ngIf="users"><b>SEARCH RESULTS:</b>
         <div class="card-columns">
             <div *ngFor="let user of users">
                 <div class="card">
                         <div class="card-body">
                             <div><img src="{{user.ppic}}"></div>
                             <div><b>{{user.login}}</b><br>
-                    <p style="font-style: italic;">14 public repositories</p>
+                    <p style="font-style: italic; margin: 10px; font-size: 12px;">14 public repositories</p>
                     <button [routerLink]="['/user-repo',user.login]" class="btn btn-primary">See Repositories</button></div>
                     
                     </div>

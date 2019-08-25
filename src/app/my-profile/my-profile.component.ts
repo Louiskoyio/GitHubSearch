@@ -1,6 +1,9 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { MyProfileService } from '../services/my-profile.service';
+import { UserReposService } from '../services/user-repos.service'
 import { Myprofile} from '../myprofile';
+import { Repo } from '../repo';
+import { from } from 'rxjs';
 
 @Component({
   selector: 'app-my-profile',
@@ -12,11 +15,13 @@ export class MyProfileComponent implements OnInit {
 
   profile:Myprofile[];
 
+  repos:Repo[]=[];
 
-  getMyProfile(){
-    this.myProfileService.getProfile().then(
+
+  getMyRepos(){
+    this.repoService.getRepos().then(
       ()=>{
-        this.profile=this.myProfileService.profile;
+        this.repos=this.repoService.repos;
       },
       (error)=>{
         console.log(error)
@@ -26,10 +31,10 @@ export class MyProfileComponent implements OnInit {
 
 
   
-  constructor(public myProfileService:MyProfileService) { }
+  constructor(public repoService:UserReposService) { }
 
   ngOnInit() {
-    this.getMyProfile();
+    this.getMyRepos();
   }
 
 }

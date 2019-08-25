@@ -1,15 +1,17 @@
 
 <div class="card">
-    <h2>Louiskoyio</h2>
-    <div class="row card-body">
-        <img src="https://avatars1.githubusercontent.com/u/18413443?v=4">
-
-        <ul>
-            <li><b>Repository Name</b> - Description <button class="btn btn-primary">View</button></li>
-            <li><b>Repository Name</b> - Description <button class="btn btn-primary">View</button></li>
-
-        </ul>
+    <b>MY PROFILE</b>
+    <div class="card-body">
         
-        
+        <div><img src="https://avatars1.githubusercontent.com/u/18413443?v=4"></div>
+        <div *ngIf="repos">
+            <ul *ngFor="let repo of repos">
+                <li>
+                    <b>{{repo.name}}</b> - {{repo.description}} -
+                    <a href="{{repo.link}}">view</a>
+                </li>  
+            </ul>
+  
+        </div>
     </div>
 </div>
