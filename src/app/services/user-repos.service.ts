@@ -20,11 +20,13 @@ export class UserReposService {
         this.http.get(searchEndpoint).toPromise().then(
           (results)=>{
             this.repos=[];
+
             for(let i=0; i<15; i++){
               let name = results[i]["name"];
               let desc = results[i]["description"];
               let repo = new Repo(name,desc);
               this.repos.push(repo);
+              i=i+i;
             }
             console.log(this.repos);
             resolve()

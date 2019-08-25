@@ -13,12 +13,12 @@ export class UserRepositoriesComponent implements OnInit {
   @Output() getProfile = new EventEmitter<any>()
 
   username: string;
-  repo:Repo[]=[];
+  repos:Repo[]=[];
 
   getUserRepos(){
     this.repoService.getRepos().then(
       ()=>{
-        this.repo=this.repoService.repos;
+        this.repos=this.repoService.repos;
       },
       (error)=>{
         console.log(error)
