@@ -1,13 +1,20 @@
-
+<div>
 <div class="card">
     <b>SEARCH USERS</b>
     <div class="card-body">
     <form>
         
     <input type="text" class="form-control" name="userQuery" [(ngModel)]="userQuery">
-    <input type="radio" name="type" value="users"> users
-    <input type="radio" name="type" value="repositories"> repositories
     <button type="submit" class="btn btn-primary" (click)="search()">SEARCH</button>
     </form>
+
+    <b>SEARCH REPOSITORIES</b>
+    <div class="card-body">
+    <form>
+        
+    <input type="text" class="form-control" name="userQuery" [(ngModel)]="userQuery">
+    <button type="submit" class="btn btn-primary" (click)="search2()">SEARCH</button>
+    </form>
     </div>
+</div>
 </div>

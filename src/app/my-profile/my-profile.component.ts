@@ -2,7 +2,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { MyProfileService } from '../services/my-profile.service';
 import { UserReposService } from '../services/user-repos.service'
 import { Myprofile} from '../myprofile';
-import { Repo } from '../repo';
+import { Repo } from '../repo-class/repo';
 import { from } from 'rxjs';
 
 @Component({

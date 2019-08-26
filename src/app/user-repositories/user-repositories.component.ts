@@ -2,7 +2,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { UserReposService} from '../services/user-repos.service';
-import { Repo } from '../repo';
+import { Repo } from '../repo-class/repo';
 
 @Component({
   selector: 'app-user-repositories',

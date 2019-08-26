@@ -1,7 +1,8 @@
 import { Component, OnInit,Input, Output, EventEmitter  } from '@angular/core';
 import { SearchService } from '../services/search.service';
 import { MyProfileService } from '../services/my-profile.service';
-import { User } from '../user';
+import { User } from '../user-class/user';
+import { Repo } from '../repo-class/repo';
 import { Myprofile} from '../myprofile';
 
 
@@ -13,6 +14,19 @@ import { Myprofile} from '../myprofile';
 export class ResultsComponent implements OnInit {
 
   users:User[];
+  repos:Repo[];
+
+  searchRepo(userQuery: string){
+    this.searchService.searchRepos(userQuery).then(
+      ()=>{
+        this.repos=this.searchService.repos;
+      },
+      (error)=>{
+        console.log(error)
+      }
+    )
+    }
+
 
 
 	searchUser(userQuery: string){

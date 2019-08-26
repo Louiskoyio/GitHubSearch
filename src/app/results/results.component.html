@@ -1,7 +1,7 @@
 <div>
     <div class="dashboard">
     <app-my-profile (getProfile)="getMyProfile($event)"></app-my-profile>
-    <app-search (emitSearch)="searchUser($event)"></app-search>
+    <app-search (emitSearch)="searchUser($event)" (emitSearch2)="searchRepo($event)"></app-search>
     </div>
     <div class="results">
         
@@ -19,6 +19,19 @@
                 </div>
             </div>
         </div>
+        
     </div>
+    <div *ngIf="repos"><b>SEARCH RESULTS:</b>
+    <div class="card-columns">
+    <div *ngFor="let repo of repos">
+            <div class="card ">
+                    <div class="card-custom">
+             <b>{{repo.name}}</b><br>
+             <p>{{repo.description}}</p> <br>
+                <a href="{{repo.link}}"><button class="btn btn-default">Go to Repository</button></a>
+
+                </div>
+            </div></div>
+        </div></div>
 </div>
 </div>

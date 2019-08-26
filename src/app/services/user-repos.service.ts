@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from'@angular/common/http';
 import {environment} from '../../environments/environment';
-import { Repo } from '../repo';
+import { Repo } from '../repo-class/repo';
 
 @Injectable({
   providedIn: 'root'
@@ -29,7 +29,6 @@ export class UserReposService {
               let url = results[i]["html_url"];
               let repo = new Repo(name,desc,url);
               this.repos.push(repo);
-              i=i+i;
             }
             console.log(this.repos);
             resolve()
