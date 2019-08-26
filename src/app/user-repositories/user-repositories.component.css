@@ -42,3 +42,6 @@
     transition-duration: 0.4s;
     cursor: pointer;
 }
+p{
+    font-size: 15px;
+}

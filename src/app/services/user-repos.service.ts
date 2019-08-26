@@ -12,8 +12,9 @@ export class UserReposService {
 
   constructor(private http:HttpClient) { }
 
-  getRepos(){
-    let searchEndpoint= "https://api.github.com/users/Louiskoyio/repos?accesstoken="+environment.GITHUBACCESSTOKEN;
+  getRepos(username: string){
+
+    let searchEndpoint= "https://api.github.com/users/"+username+"/repos?accesstoken="+environment.GITHUBACCESSTOKEN;
  
 
     let promise =  new Promise((resolve, reject)=>{
@@ -21,7 +22,8 @@ export class UserReposService {
           (results)=>{
             this.repos=[];
 
-            for(let i=0; i<15; i++){
+            for(let i=0; i<14; i++){
+  
               let name = results[i]["name"];
               let desc = results[i]["description"];
               let url = results[i]["html_url"];

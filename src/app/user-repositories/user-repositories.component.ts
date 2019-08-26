@@ -20,8 +20,8 @@ export class UserRepositoriesComponent implements OnInit {
     window.open(link, "_blank");
   }
 
-  getUserRepos(){
-    this.repoService.getRepos().then(
+  getUserRepos(username: string){
+    this.repoService.getRepos(this.username).then(
       ()=>{
         this.repos=this.repoService.repos;
       },
@@ -39,7 +39,7 @@ export class UserRepositoriesComponent implements OnInit {
         this.username=params.get('link');
 
     });
-    this.getUserRepos();
+    this.getUserRepos(this.username);
     
   } 
   }

@@ -5,7 +5,7 @@ img{
 }
 .card{
     padding: 20px;
-    width: 100%;
+    width: 150%;
 
 }
 b{
@@ -24,4 +24,8 @@ b{
 
 li{
     text-decoration: none;
+}
+
+table{
+    font-size: 10px;
 }

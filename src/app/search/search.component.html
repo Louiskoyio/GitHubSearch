@@ -5,6 +5,8 @@
     <form>
         
     <input type="text" class="form-control" name="userQuery" [(ngModel)]="userQuery">
+    <input type="radio" name="type" value="users"> users
+    <input type="radio" name="type" value="repositories"> repositories
     <button type="submit" class="btn btn-primary" (click)="search()">SEARCH</button>
     </form>
     </div>

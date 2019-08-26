@@ -17,9 +17,10 @@ export class MyProfileComponent implements OnInit {
 
   repos:Repo[]=[];
 
+  myUsername="Louiskoyio";
 
-  getMyRepos(){
-    this.repoService.getRepos().then(
+  getMyRepos(myUsername: string){
+    this.repoService.getRepos(myUsername).then(
       ()=>{
         this.repos=this.repoService.repos;
       },
@@ -34,7 +35,7 @@ export class MyProfileComponent implements OnInit {
   constructor(public repoService:UserReposService) { }
 
   ngOnInit() {
-    this.getMyRepos();
+    this.getMyRepos(this.myUsername);
   }
 
 }
