@@ -16,7 +16,7 @@ export class SearchService {
   searchUsers(userQuery:string){
 
         
-    let searchEndpoint= "https://api.github.com/search/users?accesstoken="+environment.GITHUBACCESSTOKEN;
+    let searchEndpoint= "https://api.github.com/search/users?accesstoken=0b9be83018547b4c91efebd06462a29fab0a4d07";
     searchEndpoint += "&q="+userQuery;
 
     let promise =  new Promise((resolve, reject)=>{
@@ -47,7 +47,7 @@ export class SearchService {
   searchRepos(userQuery:string){
 
         
-    let searchEndpoint= "https://api.github.com/search/repositories?accesstoken="+environment.GITHUBACCESSTOKEN;
+    let searchEndpoint= "https://api.github.com/search/repositories?accesstoken=0b9be83018547b4c91efebd06462a29fab0a4d07";
     searchEndpoint += "&q="+userQuery;
 
     let promise =  new Promise((resolve, reject)=>{

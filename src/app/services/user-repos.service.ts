@@ -14,7 +14,7 @@ export class UserReposService {
 
   getRepos(username: string){
 
-    let searchEndpoint= "https://api.github.com/users/"+username+"/repos?accesstoken="+environment.GITHUBACCESSTOKEN;
+    let searchEndpoint= "https://api.github.com/users/"+username+"/repos?accesstoken=0b9be83018547b4c91efebd06462a29fab0a4d07";
  
 
     let promise =  new Promise((resolve, reject)=>{
